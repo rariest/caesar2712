@@ -7,9 +7,9 @@
     <ProjectGuid>{3B25ED11-ADCA-4FCE-A7CD-BB78DDF051EE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>caesar</RootNamespace>
-    <AssemblyName>caesar</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Caesar</RootNamespace>
+    <AssemblyName>Caesar</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />

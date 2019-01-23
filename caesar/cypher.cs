@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace caesar
+namespace Caesar
 {
-    class Cypher
+    public class Cypher
     {
         string _alphabetrus = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
         string _alphabeteng = "abcdefghijklmnopqrstuvwxyz";
         string _alphabetrusup = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+
         string _alphabetengup = "ABCDEFGHIJKLMNOPQRSTUVWXXYZ";
+
         //  double[] freqeng = {.0796,.016,.0284,.0401,.1286,.0262,.0199,.0539,.0777,.0016,.0041,.0351,
         //                      .0243,.0751,.0662,.0181,.0017,.0683,.0662,.0972,.0248,.0115,.018,.0017,
         //                                                                               .0152,.0005 };
@@ -25,13 +27,13 @@ namespace caesar
             ['г'] = .0083, ['д'] = .0265, ['е'] = .0732,
             ['ж'] = .0079, ['з'] = .0133, ['и'] = .0577,
             ['й'] = .0125, ['к'] = .0302, ['л'] = .0299,
-            ['м'] = .0275, ['н'] = .049,  ['о'] = .0764,
-            ['п'] = .033,  ['р'] = .0459, ['с'] = .0404,
+            ['м'] = .0275, ['н'] = .049, ['о'] = .0764,
+            ['п'] = .033, ['р'] = .0459, ['с'] = .0404,
             ['т'] = .0549, ['у'] = .0222, ['ф'] = .0036,
             ['х'] = .0048, ['ц'] = .0021, ['ч'] = .0094,
             ['ш'] = .0026, ['щ'] = .0042, ['ъ'] = .0003,
             ['ы'] = .0143, ['ь'] = .0138, ['э'] = .0023,
-            ['ю'] = .0081, ['я'] = .0153        
+            ['ю'] = .0081, ['я'] = .0153
         };
 
 
@@ -40,15 +42,10 @@ namespace caesar
         {
             string text = textin.ToLower();
 
-            var x = from c in text
-                    group c by c into g
-                    let count = g.Count()
-                    orderby g.Key ascending
-                    select new
-                    {
-                        Value = g.Key,
-                        Count = count
-                    };
+            var x = text.GroupBy(c => c)
+                .Select(g => new {g, count = g.Count()})
+                .OrderBy(t => t.g.Key)
+                .Select(t => new {Value = t.g.Key, Count = t.count});
 
             var xdict = x.ToDictionary(c => c.Value, c => c.Count);
 
@@ -56,7 +53,7 @@ namespace caesar
             //{
             //    new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),new SortedDictionary<char, double>(),
             //};
-            SortedDictionary<char, double> move = new SortedDictionary<char, double>();
+            var move = new SortedDictionary<char, double>();
             for (int i = 0; i < 32; i++)
             {
                 double val = 0.00;
@@ -64,10 +61,10 @@ namespace caesar
 
                 if (xdict.ContainsKey(ky))
                 {
-                    val = (double)xdict[ky] / (double)text.Length;
+                    val = (double) xdict[ky] / (double) text.Length;
 
                     move.Add(Alphabetrusdict.ElementAt(i).Key,
-                        (double)Math.Abs(val - Alphabetrusdict[ky]));
+                        Math.Abs(val - Alphabetrusdict[ky]));
                 }
                 else
                 {
@@ -89,7 +86,10 @@ namespace caesar
             {
                 foreach (var item in _symbols)
                 {
-                    if (IN[i] == item) { buf += item; }
+                    if (IN[i] == item)
+                    {
+                        buf += item;
+                    }
                 }
 
                 for (int j = 0; j < _alphabetrus.Length; j++)
@@ -97,7 +97,11 @@ namespace caesar
                     if (IN[i] == _alphabetrus[j])
                     {
                         int move = j + key;
-                        while (move >= _alphabetrus.Length) { move -= _alphabetrus.Length; }
+                        while (move >= _alphabetrus.Length)
+                        {
+                            move -= _alphabetrus.Length;
+                        }
+
                         if (move < 0) move = _alphabetrus.Length + move;
                         buf = buf + _alphabetrus[move];
                     }
@@ -109,7 +113,11 @@ namespace caesar
                     {
                         int move = j + key;
                         if (move < 0) move = _alphabetrusup.Length + move;
-                        while (move >= _alphabetrusup.Length) { move -= _alphabetrusup.Length; }
+                        while (move >= _alphabetrusup.Length)
+                        {
+                            move -= _alphabetrusup.Length;
+                        }
+
                         buf = buf + _alphabetrusup[move];
                     }
                 }
@@ -120,7 +128,11 @@ namespace caesar
                     {
                         int move = j + key;
                         if (move < 0) move = _alphabeteng.Length + move;
-                        while (move >= _alphabeteng.Length) { move -= _alphabeteng.Length; }
+                        while (move >= _alphabeteng.Length)
+                        {
+                            move -= _alphabeteng.Length;
+                        }
+
                         buf = buf + _alphabeteng[move];
                     }
                 }
@@ -131,13 +143,17 @@ namespace caesar
                     {
                         int move = j + key;
                         if (move < 0) move = _alphabetengup.Length + move;
-                        while (move >= _alphabetengup.Length) { move -= _alphabetengup.Length; }
+                        while (move >= _alphabetengup.Length)
+                        {
+                            move -= _alphabetengup.Length;
+                        }
+
                         buf = buf + _alphabetengup[move];
                     }
                 }
 
             }
-            
+
             string moved = buf;
             return moved;
         }

@@ -1,4 +1,4 @@
-﻿namespace caesar
+﻿namespace Caesar
 {
     partial class Base
     {
@@ -83,7 +83,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Сдвинуть по всему алфавиту";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // textBox1
             // 
@@ -132,7 +132,7 @@
             this.button3.TabIndex = 8;
             this.button3.Text = "Зашифровать";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // textBox3
             // 
@@ -182,14 +182,14 @@
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.СохранитьToolStripMenuItem_Click);
             // 
             // очиститьВсёToolStripMenuItem
             // 
             this.очиститьВсёToolStripMenuItem.Name = "очиститьВсёToolStripMenuItem";
             this.очиститьВсёToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.очиститьВсёToolStripMenuItem.Text = "Очистить всё";
-            this.очиститьВсёToolStripMenuItem.Click += new System.EventHandler(this.очиститьВсёToolStripMenuItem_Click);
+            this.очиститьВсёToolStripMenuItem.Click += new System.EventHandler(this.ОчиститьВсёToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -201,7 +201,7 @@
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.выходToolStripMenuItem.Text = "Выход";
-            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.ВыходToolStripMenuItem_Click);
             // 
             // помощьToolStripMenuItem
             // 
@@ -216,7 +216,7 @@
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
-            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.ОПрограммеToolStripMenuItem_Click);
             // 
             // bExit
             // 
@@ -229,7 +229,7 @@
             this.bExit.TabIndex = 18;
             this.bExit.Text = "Закрыть";
             this.bExit.UseVisualStyleBackColor = false;
-            this.bExit.Click += new System.EventHandler(this.bExit_Click);
+            this.bExit.Click += new System.EventHandler(this.BExit_Click);
             // 
             // label1
             // 
@@ -296,7 +296,7 @@
             this.button6.TabIndex = 24;
             this.button6.Text = "Взломать";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // richTextBox3
             // 
@@ -314,7 +314,7 @@
             this.button9.TabIndex = 24;
             this.button9.Text = "частоты слева";
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button9.Click += new System.EventHandler(this.Button9_Click);
             // 
             // richTextBox4
             // 
@@ -332,7 +332,7 @@
             this.button10.TabIndex = 27;
             this.button10.Text = "частоты справа";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.Click += new System.EventHandler(this.Button10_Click);
             // 
             // button8
             // 
@@ -342,7 +342,7 @@
             this.button8.TabIndex = 23;
             this.button8.Text = "Озвучить";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button8.Click += new System.EventHandler(this.Button8_Click);
             // 
             // button7
             // 
@@ -352,7 +352,7 @@
             this.button7.TabIndex = 22;
             this.button7.Text = "Озвучить";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.Button7_Click);
             // 
             // label4
             // 
